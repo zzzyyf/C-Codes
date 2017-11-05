@@ -1,9 +1,10 @@
+#pragma warning(disable:4996)
 #include <stdio.h>
 typedef struct stu
 {
 	struct stu *prev_stu;//上一个学生
 	struct stu *next_stu;//下一个学生
-	char no;//序号
+	int no;//序号
 	char name[20];//姓名
 	char id_num[20];//学号
 	char gender;//性别，m=男，w=女
@@ -27,7 +28,7 @@ typedef struct//关键字的内容和类型
 {
 	union keyword k;//输入的关键字
 	enum type t;//关键字类型
-}key;
+}searchkey;
 
 int c;//是否创建链表
 
@@ -53,4 +54,7 @@ void printforR(FILE *stream, stu* a);
 void average(stu *a, stu* first);
 
 /*根据输入的关键字查找节点*/
-void search(key *k, stu *first);
+void search(stu *first);
+
+/*对链表的节点按照平均成绩降序排序*/
+stu *sorting(stu *first, stu *max, stu *old);
